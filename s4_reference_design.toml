@@ -60,10 +60,12 @@ number_of_splits = 1
     # Tubes for each LAT should be 19
 
     [telescopes.Legacy_LAT]
+    # Legacy survey LAT deployed in Chile
 
     LAT0 = { ULFL=0, LFL= 2, MFL=12, HFL=5 }
     LAT1 = { ULFL=0, LFL= 2, MFL=12, HFL=5 }
 
     [telescopes.Delensing_LAT]
+    # Delensing survey LAT deployed at Pole
 
     LAT2 = { ULFL=1, LFL= 2, MFL=11, HFL=4 }
