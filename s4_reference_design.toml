@@ -48,7 +48,9 @@ number_of_splits = 1
     # Deployed initially at Pole if "years_at_Pole" is over zero
     # Re-deployed to Chile afterwards
 
-    years_at_Pole = 3
+    # 7 for reference design, lower value for relocation to Chile
+    # in case of early detection of the tensor to scalar ratio
+    years_at_Pole = 7
     SAT0 = { LFS=0, MFLS= 3, MFHS=0, HFS=0 }
     SAT2 = { LFS=0, MFLS= 0, MFHS=3, HFS=0 }
     SAT4 = { LFS=1, MFLS= 0, MFHS=0, HFS=2 }
