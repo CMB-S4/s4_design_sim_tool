@@ -2,10 +2,8 @@
 # Each sky emission has a weighting factor between 0 and 1
 
 # Synchrotron, Dust, Free-free, AME
-galactic_emission = 1
-
 # Websky CIB, tSZ, kSZ
-extragalactic_emission = 1
+foreground_emission = 1
 
 # Planck cosmological parameters, no tensor modes
 CMB_unlensed = 1
