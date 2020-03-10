@@ -59,7 +59,7 @@ summary: "Load and scale the maps of the noise from the atmosphere"
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_telecope_years</span><span class="p">(</span><span class="n">config_telescopes</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">channel</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Compute the number of telescope/years in the CMB-S4 configuration</span>
-<span class="sd">    </span>
+
 <span class="sd">    config_telescopes : dict</span>
 <span class="sd">        CMB-S4 telescopes configuration,</span>
 <span class="sd">        generally config[&quot;telescopes&quot;] if loaded from a TOML file</span>
@@ -72,7 +72,9 @@ summary: "Load and scale the maps of the noise from the atmosphere"
     <span class="k">for</span> <span class="n">tube</span><span class="p">,</span> <span class="n">bands</span> <span class="ow">in</span> <span class="n">config_telescopes</span><span class="p">[</span><span class="n">get_telescope</span><span class="p">(</span><span class="n">channel</span><span class="p">)]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">bands</span><span class="p">[</span><span class="s2">&quot;site&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">site</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
             <span class="n">has_band</span> <span class="o">=</span> <span class="n">bands</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">channel</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
-            <span class="n">telescope_years</span> <span class="o">+=</span> <span class="n">has_band</span> <span class="o">*</span> <span class="n">bands</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;years&quot;</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;experiment&quot;</span><span class="p">][</span><span class="s2">&quot;total_experiment_length_years&quot;</span><span class="p">])</span>
+            <span class="n">telescope_years</span> <span class="o">+=</span> <span class="n">has_band</span> <span class="o">*</span> <span class="n">bands</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="s2">&quot;years&quot;</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;experiment&quot;</span><span class="p">][</span><span class="s2">&quot;total_experiment_length_years&quot;</span><span class="p">]</span>
+            <span class="p">)</span>
     <span class="k">return</span> <span class="n">telescope_years</span>
 </pre></div>
 
@@ -90,16 +92,18 @@ summary: "Load and scale the maps of the noise from the atmosphere"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_telecope_years" class="doc_header"><code>get_telecope_years</code><a href="https://github.com/cmb-s4/s4refsimtool/tree/master/s4refsimtool/atmosphere.py#L19" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_telecope_years</code>(<strong><code>config_telescopes</code></strong>, <strong><code>site</code></strong>, <strong><code>channel</code></strong>)</p>
+<h4 id="get_telecope_years" class="doc_header"><code>get_telecope_years</code><a href="https://github.com/cmb-s4/s4refsimtool/tree/master/s4refsimtool/atmosphere.py#L20" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_telecope_years</code>(<strong><code>config_telescopes</code></strong>, <strong><code>site</code></strong>, <strong><code>channel</code></strong>)</p>
 </blockquote>
-<p>Compute the number of telescope/years in the CMB-S4 configuration</p>
-<p>config_telescopes : dict
+
+<pre><code>Compute the number of telescope/years in the CMB-S4 configuration
+
+config_telescopes : dict
     CMB-S4 telescopes configuration,
     generally config["telescopes"] if loaded from a TOML file
 site : str
     'Pole' or 'Chile', case doesn't matter
 channel : str
-    Channel tag, e.g. 'MFHS1'</p>
+    Channel tag, e.g. 'MFHS1'</code></pre>
 
 </div>
 
@@ -266,7 +270,7 @@ Chile ULFL1 0
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">load_atmosphere</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">realization</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Load foreground maps for a channel</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    config : dict</span>
@@ -278,7 +282,7 @@ Chile ULFL1 0
 <span class="sd">        Channel tag, e.g. &#39;MFHS1&#39;</span>
 <span class="sd">    realization : int</span>
 <span class="sd">        Choose one of the available 8 realizations</span>
-<span class="sd">        </span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    output_map : numpy array</span>
@@ -286,13 +290,22 @@ Chile ULFL1 0
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">telescope</span> <span class="o">=</span> <span class="n">get_telescope</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span>
     <span class="n">atmosphere_map</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">read_map</span><span class="p">(</span>
-            <span class="n">Path</span><span class="p">(</span><span class="n">base_folder</span><span class="p">)</span> <span class="o">/</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{realization:08d}</span><span class="s2">&quot;</span><span class="o">/</span> <span class="n">f</span><span class="s2">&quot;{site.lower()}_atmosphere_</span><span class="si">{telescope}</span><span class="s2">_</span><span class="si">{channel}</span><span class="s2">_filtered_telescope_all_time_all_bmap.fits&quot;</span><span class="p">,</span>
-        <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">Path</span><span class="p">(</span><span class="n">base_folder</span><span class="p">)</span>
+        <span class="o">/</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{realization:08d}</span><span class="s2">&quot;</span>
+        <span class="o">/</span> <span class="n">f</span><span class="s2">&quot;{site.lower()}_atmosphere_</span><span class="si">{telescope}</span><span class="s2">_</span><span class="si">{channel}</span><span class="s2">_filtered_telescope_all_time_all_bmap.fits&quot;</span><span class="p">,</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
     <span class="n">atmosphere_map</span><span class="p">[</span><span class="n">atmosphere_map</span> <span class="o">==</span> <span class="n">hp</span><span class="o">.</span><span class="n">UNSEEN</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
     <span class="c1"># input map is 10 days at 100% efficiency</span>
-    <span class="n">atmosphere_map</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">365.25</span> <span class="o">*</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;experiment&quot;</span><span class="p">][</span><span class="s2">&quot;observing_efficiency&quot;</span><span class="p">])</span>
+    <span class="n">atmosphere_map</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="mf">365.25</span> <span class="o">*</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;experiment&quot;</span><span class="p">][</span><span class="s2">&quot;observing_efficiency&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
     <span class="c1"># pole sims have lower efficiency</span>
-    <span class="n">atmosphere_map</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">simulations_observing_efficiency</span><span class="p">[</span><span class="n">site</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">telescope</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">atmosphere_map</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="n">simulations_observing_efficiency</span><span class="p">[</span><span class="n">site</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">telescope</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">)</span>
     <span class="n">atmosphere_map</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">get_telecope_years</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;telescopes&quot;</span><span class="p">],</span> <span class="n">site</span><span class="p">,</span> <span class="n">channel</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">atmosphere_map</span>
 </pre></div>
@@ -311,10 +324,14 @@ Chile ULFL1 0
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="load_atmosphere" class="doc_header"><code>load_atmosphere</code><a href="https://github.com/cmb-s4/s4refsimtool/tree/master/s4refsimtool/atmosphere.py#L39" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>load_atmosphere</code>(<strong><code>config</code></strong>, <strong><code>site</code></strong>, <strong><code>channel</code></strong>, <strong><code>realization</code></strong>=<em><code>0</code></em>)</p>
+<h4 id="load_atmosphere" class="doc_header"><code>load_atmosphere</code><a href="https://github.com/cmb-s4/s4refsimtool/tree/master/s4refsimtool/atmosphere.py#L44" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>load_atmosphere</code>(<strong><code>config</code></strong>, <strong><code>site</code></strong>, <strong><code>channel</code></strong>, <strong><code>realization</code></strong>=<em><code>0</code></em>)</p>
 </blockquote>
-<p>Load foreground maps for a channel</p>
-<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters">&#182;</a></h2><p>config : dict
+
+<pre><code>Load foreground maps for a channel
+
+Parameters
+----------
+config : dict
     CMB-S4 configuration,
     generally loaded from a TOML file
 site : str
@@ -322,9 +339,12 @@ site : str
 channel : str
     Channel tag, e.g. 'MFHS1'
 realization : int
-    Choose one of the available 8 realizations</p>
-<h2 id="Returns">Returns<a class="anchor-link" href="#Returns">&#182;</a></h2><p>output_map : numpy array
-    Output map with all emissions combined, uses nan for missing pixels</p>
+    Choose one of the available 8 realizations
+
+Returns
+-------
+output_map : numpy array
+    Output map with all emissions combined, uses nan for missing pixels</code></pre>
 
 </div>
 
