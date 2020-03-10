@@ -1,6 +1,6 @@
 SRC = $(wildcard ./*.ipynb)
 
-all: s4refsimtool docs
+all: s4refsimtool
 
 s4refsimtool: $(SRC)
 	nbdev_build_lib
@@ -8,6 +8,9 @@ s4refsimtool: $(SRC)
 
 clear: $(SRC)
 	nbdev_clean_nbs --clear_all True --fname "*.ipynb"
+
+sync:
+	nbdev_update_lib
 
 docs_serve: docs
 	cd docs && bundle exec jekyll serve
