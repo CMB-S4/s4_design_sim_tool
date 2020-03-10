@@ -6,6 +6,9 @@ s4refsimtool: $(SRC)
 	nbdev_build_lib
 	touch s4refsimtool
 
+clear: $(SRC)
+	nbdev_clean_nbs --clear_all True --fname "*.ipynb"
+
 docs_serve: docs
 	cd docs && bundle exec jekyll serve
 
