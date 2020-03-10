@@ -184,6 +184,56 @@ ULFL1 20.0
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">load_sky_emission</span><span class="p">(</span><span class="n">config_sky_emission</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">channel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Load foreground maps for a channel</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config_sky_emission : dict</span>
+<span class="sd">        CMB-S4 sky emission configuration,</span>
+<span class="sd">        generally config[&#39;sky_emission&#39;] for a configuration</span>
+<span class="sd">        loaded from a TOML file</span>
+<span class="sd">        dictionary with standard emission names and their weights</span>
+<span class="sd">    site : str</span>
+<span class="sd">        &#39;Pole&#39; or &#39;Chile&#39;, case doesn&#39;t matter</span>
+<span class="sd">    channel : str</span>
+<span class="sd">        Channel tag, e.g. &#39;MFHS1&#39;</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    output_map : numpy array</span>
+<span class="sd">        Output map with all emissions combined, uses nan for missing pixels</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">telescope</span> <span class="o">=</span> <span class="n">get_telescope</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+    <span class="n">nside</span> <span class="o">=</span> <span class="mi">512</span> <span class="k">if</span> <span class="n">telescope</span> <span class="o">==</span> <span class="s2">&quot;SAT&quot;</span> <span class="k">else</span> <span class="mi">4096</span>
+    <span class="n">npix</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">nside2npix</span><span class="p">(</span><span class="n">nside</span><span class="p">)</span>
+    <span class="n">output_map</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="n">npix</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">realization</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># foregrounds are deterministic</span>
+    <span class="k">for</span> <span class="n">emission</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">config_sky_emission</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">weight</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Skip </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">emission</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Processing </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">emission</span><span class="p">)</span>
+
+        <span class="n">emission_map</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">read_map</span><span class="p">(</span>
+            <span class="n">Path</span><span class="p">(</span><span class="n">base_folder</span><span class="p">)</span> <span class="o">/</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{realization:08d}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="n">f</span><span class="s2">&quot;{site.lower()}_</span><span class="si">{emission_naming[emission]}</span><span class="s2">_</span><span class="si">{telescope}</span><span class="s2">_</span><span class="si">{ch}</span><span class="s2">_filtered_telescope_all_time_all_bmap.fits&quot;</span><span class="p">,</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">emission_map</span><span class="p">[</span><span class="n">emission_map</span> <span class="o">==</span> <span class="n">hp</span><span class="o">.</span><span class="n">UNSEEN</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="k">if</span> <span class="n">emission</span> <span class="o">==</span> <span class="s2">&quot;CMB_tensor_to_scalar_ratio&quot;</span><span class="p">:</span>
+            <span class="n">weight</span> <span class="o">/=</span> <span class="mf">0.01</span> <span class="c1"># r of the input maps</span>
+        <span class="n">output_map</span> <span class="o">+=</span> <span class="n">emission_map</span> <span class="o">*</span> <span class="n">weight</span>
+
+    <span class="n">output_map</span> <span class="o">/=</span> <span class="mf">1e6</span> <span class="c1"># uK -&gt; K</span>
+    <span class="k">return</span> <span class="n">output_map</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">

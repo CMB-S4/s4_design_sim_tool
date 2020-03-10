@@ -56,6 +56,29 @@ summary: "Load and scale 1/f and white noise simulations"
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_thinfp</span><span class="p">(</span><span class="n">channel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the focal plane thinning factor for noise simulations</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    channel : str</span>
+<span class="sd">        CMB-S4 channel tag e.g. HFL2</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    thinfp : int</span>
+<span class="sd">        thinning factor</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">thinfp_table</span><span class="p">[</span><span class="n">thinfp_table</span><span class="p">[</span><span class="s2">&quot;band&quot;</span><span class="p">]</span><span class="o">==</span><span class="n">channel</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]])[</span><span class="s2">&quot;thinfp&quot;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
@@ -125,6 +148,32 @@ summary: "Load and scale 1/f and white noise simulations"
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_tube_years</span><span class="p">(</span><span class="n">config_telescopes</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">channel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute the number of tube/years in the CMB-S4 configuration</span>
+<span class="sd">    </span>
+<span class="sd">    config_telescopes : dict</span>
+<span class="sd">        CMB-S4 telescopes configuration,</span>
+<span class="sd">        generally config[&quot;telescopes&quot;] if loaded from a TOML file</span>
+<span class="sd">    site : str</span>
+<span class="sd">        &#39;Pole&#39; or &#39;Chile&#39;, case doesn&#39;t matter</span>
+<span class="sd">    channel : str</span>
+<span class="sd">        Channel tag, e.g. &#39;MFHS1&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tube_years</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">tube</span><span class="p">,</span> <span class="n">bands</span> <span class="ow">in</span> <span class="n">config_telescopes</span><span class="p">[</span><span class="n">get_telescope</span><span class="p">(</span><span class="n">channel</span><span class="p">)]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">bands</span><span class="p">[</span><span class="s2">&quot;site&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">site</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="n">num_tubes</span> <span class="o">=</span> <span class="n">bands</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">channel</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">tube_years</span> <span class="o">+=</span> <span class="n">num_tubes</span> <span class="o">*</span> <span class="n">bands</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;years&quot;</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;experiment&quot;</span><span class="p">][</span><span class="s2">&quot;total_experiment_length_years&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">tube_years</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
@@ -302,6 +351,50 @@ Chile ULFL1 0
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">load_noise</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">realization</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Load noise maps for a channel</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config : dict</span>
+<span class="sd">        CMB-S4 configuration,</span>
+<span class="sd">        generally loaded from a TOML file</span>
+<span class="sd">    site : str</span>
+<span class="sd">        &#39;Pole&#39; or &#39;Chile&#39;, case doesn&#39;t matter</span>
+<span class="sd">    channel : str</span>
+<span class="sd">        Channel tag, e.g. &#39;MFHS1&#39;</span>
+<span class="sd">    realization : int</span>
+<span class="sd">        Choose one of the available 8 realizations</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    output_map : numpy array</span>
+<span class="sd">        Output map with all emissions combined, uses nan for missing pixels</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">telescope</span> <span class="o">=</span> <span class="n">get_telescope</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span>
+    <span class="n">nside</span> <span class="o">=</span> <span class="mi">512</span> <span class="k">if</span> <span class="n">telescope</span> <span class="o">==</span> <span class="s2">&quot;SAT&quot;</span> <span class="k">else</span> <span class="mi">4096</span>
+    <span class="n">npix</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">nside2npix</span><span class="p">(</span><span class="n">nside</span><span class="p">)</span>
+    <span class="n">output_map</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">read_map</span><span class="p">(</span>
+            <span class="n">Path</span><span class="p">(</span><span class="n">base_folder</span><span class="p">)</span> <span class="o">/</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{realization:08d}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="n">f</span><span class="s2">&quot;{site.lower()}_noise_</span><span class="si">{telescope}</span><span class="s2">_</span><span class="si">{channel}</span><span class="s2">_filtered_telescope_all_time_all_bmap.fits&quot;</span><span class="p">,</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">output_map</span><span class="p">[</span><span class="n">output_map</span> <span class="o">==</span> <span class="n">hp</span><span class="o">.</span><span class="n">UNSEEN</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="c1"># input map is 10 days at 100% efficiency</span>
+    <span class="n">output_map</span> <span class="o">*=</span> <span class="mi">10</span> <span class="o">/</span> <span class="p">(</span><span class="mf">365.25</span> <span class="o">*</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;experiment&quot;</span><span class="p">][</span><span class="s2">&quot;observing_efficiency&quot;</span><span class="p">])</span>
+    <span class="n">output_map</span> <span class="o">*=</span> <span class="n">get_tube_years</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;telescopes&quot;</span><span class="p">],</span> <span class="n">site</span><span class="p">,</span> <span class="n">channel</span><span class="p">)</span>
+    <span class="c1"># pole sims have lower efficiency</span>
+    <span class="n">output_map</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">simulations_observing_efficiency</span><span class="p">[</span><span class="n">site</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">telescope</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="c1"># focal plane thinning factor of TOD simulations</span>
+    <span class="n">output_map</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">get_thinfp</span><span class="p">(</span><span class="n">channel</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">output_map</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
