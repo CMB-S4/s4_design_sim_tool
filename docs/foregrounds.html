@@ -1,11 +1,11 @@
 ---
-
-title: Title
+toc: True
+title: Foregrounds
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "summary"
+summary: "Load extragalactic, galactic and CMB maps"
 ---
 <!--
 
@@ -24,31 +24,6 @@ summary: "summary"
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">toml</span>
-<span class="kn">import</span> <span class="nn">healpy</span> <span class="k">as</span> <span class="nn">hp</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">s4refsimtool.core</span> <span class="k">import</span> <span class="n">get_telescope</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
@@ -60,46 +35,6 @@ summary: "summary"
 </pre></div>
 
     </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">base_folder</span> <span class="o">=</span> <span class="s2">&quot;/global/cscratch1/sd/keskital/s4sim/reference_tool/out/00000000&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>du -sh /global/cscratch1/sd/keskital/s4sim/reference_tool/out/00000000/
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>461G	/global/cscratch1/sd/keskital/s4sim/reference_tool/out/00000000/
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -190,35 +125,6 @@ ULFL1 20.0
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ch</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;LFS1&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span> <span class="k">as</span> <span class="nn">log</span>
 </pre></div>
 
@@ -236,35 +142,6 @@ ULFL1 20.0
 </pre></div>
 
     </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;pole_cmb-tensors_SAT_LFS1_filtered_telescope_all_time_all_bmap.fits&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;pole_cmb-tensors_SAT_LFS1_filtered_telescope_all_time_all_bmap.fits&#39;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -376,7 +253,11 @@ channel : str
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>INFO:root:Processing foreground_emission
+/global/homes/z/zonca/condajupynersc/lib/python3.6/site-packages/healpy/fitsfunc.py:352: UserWarning: If you are not specifying the input dtype and using the default np.float64 dtype of read_map(), please consider that it will change in a future version to None as to keep the same dtype of the input file: please explicitly set the dtype if it is important to you.
+  &#34;If you are not specifying the input dtype and using the default &#34;
 INFO:root:Processing CMB_unlensed
+/global/homes/z/zonca/condajupynersc/lib/python3.6/site-packages/healpy/fitsfunc.py:352: UserWarning: If you are not specifying the input dtype and using the default np.float64 dtype of read_map(), please consider that it will change in a future version to None as to keep the same dtype of the input file: please explicitly set the dtype if it is important to you.
+  &#34;If you are not specifying the input dtype and using the default &#34;
 INFO:root:Processing CMB_lensing_signal
 INFO:root:Processing CMB_tensor_to_scalar_ratio
 </pre>
@@ -441,6 +322,19 @@ INFO:root:Processing CMB_tensor_to_scalar_ratio
 
 <div class="output_wrapper">
 <div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/global/homes/z/zonca/condajupynersc/lib/python3.6/site-packages/healpy/pixelfunc.py:345: RuntimeWarning: invalid value encountered in less_equal
+  return np.absolute(m - badval) &lt;= atol + rtol * np.absolute(badval)
+/global/homes/z/zonca/condajupynersc/lib/python3.6/site-packages/healpy/projaxes.py:1184: RuntimeWarning: invalid value encountered in less
+  result.data[result.data &lt; 0] = 0.0
+/global/homes/z/zonca/condajupynersc/lib/python3.6/site-packages/healpy/projaxes.py:1185: RuntimeWarning: invalid value encountered in greater
+  result.data[result.data &gt; 1] = 1.0
+</pre>
+</div>
+</div>
 
 <div class="output_area">
 

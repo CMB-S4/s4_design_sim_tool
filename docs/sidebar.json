@@ -1,7 +1,9 @@
 {
   "s4refsimtool": {
     "Overview": "/",
-    "module name here": "/core",
-    "Title": "/atmosphere"
+    "s4refsimtool": "/core",
+    "Foregrounds": "/foregrounds",
+    "Atmosphere": "/atmosphere",
+    "Noise": "/noise"
   }
 }

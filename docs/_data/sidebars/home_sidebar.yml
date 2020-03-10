@@ -10,11 +10,17 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: module name here
+      title: s4refsimtool
       url: /core
     - output: web,pdf
-      title: Title
+      title: Foregrounds
+      url: /foregrounds
+    - output: web,pdf
+      title: Atmosphere
       url: /atmosphere
+    - output: web,pdf
+      title: Noise
+      url: /noise
     output: web
     title: s4refsimtool
   output: web
