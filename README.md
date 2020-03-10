@@ -1,4 +1,6 @@
-# CMB-S4 Reference Simulation tool
+# CMB-S4 reference simulation tool
+> Generate CMB-S4 simulated maps of foregrounds/atmosphere and noise based on the configuration of the experiment
+
 
 ## Configuration options
 
@@ -17,7 +19,7 @@ See the [`202002_foregrounds_extragalactic_cmb_tophat`](https://github.com/CMB-S
 
 ### Noise maps
 
-Noise was simulated for one tube in each telescope.  We observed according to a 10-day schedule without Sun or Moon avoidance. For Chile, the schedules already emulate the maximum observing efficiency.  For simplicity, the Pole schedules only include one full scan of the respective patch per day.  As a result, the Pole observing efficiencies are 46.29% (SAT) and 37.23% (LAT). These efficiencies must be accounted for by downweighting the Pole noise and atmospheric maps with their scheduled efficiences.
+Noise was simulated for one tube in each telescope.  We observed according to a 10-day schedule without Sun or Moon avoidance. For Chile, the schedules already emulate the maximum observing efficiency.  For simplicity, the Pole schedules only    include one full scan of the respective patch per day.  As a result, the Pole observing efficiencies are 46.29% (SAT) and 37.23% (LAT). These efficiencies must be accounted for by downweighting the Pole noise and atmospheric maps with their      scheduled efficiences.
 
 These factors should be corrected for the *noise and atmosphere* maps: `map_out = map_in * sqrt(efficiency)`.
 
@@ -33,4 +35,4 @@ SAT        MFHS     4
 SAT        MFLS     4
 SAT        LFS      1
 ```
-These factors should be corrected for in the *noise* maps but not in the atmospheric maps: `map_out = map_in / sqrt(thinfp)`.
+These factors should be corrected for in the *noise* maps but not in the atmospheric maps: `map_out = map_in / sqrt(thinfp)`. 
