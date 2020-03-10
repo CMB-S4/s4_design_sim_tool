@@ -1,11 +1,11 @@
 ---
 
-title: Title
+title: CMB-S4 reference simulation tool
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "summary"
+summary: "Generate CMB-S4 simulated maps of foregrounds/atmosphere and noise based on the configuration of the experiment"
 ---
 <!--
 
@@ -25,26 +25,26 @@ summary: "summary"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="CMB-S4-reference-simulation-tool">CMB-S4 reference simulation tool<a class="anchor-link" href="#CMB-S4-reference-simulation-tool">&#182;</a></h1><h2 id="Configuration-options">Configuration options<a class="anchor-link" href="#Configuration-options">&#182;</a></h2><p>see <code>s4_reference_design.toml</code></p>
+<h2 id="Configuration-options">Configuration options<a class="anchor-link" href="#Configuration-options">&#182;</a></h2><p>see <code>s4_reference_design.toml</code></p>
 <h2 id="Input-maps">Input maps<a class="anchor-link" href="#Input-maps">&#182;</a></h2><h3 id="Unfiltered-sky-signal">Unfiltered sky signal<a class="anchor-link" href="#Unfiltered-sky-signal">&#182;</a></h3><ul>
-<li>Full-sky Nside 4096 (LAT) and Nside 512 (SAT) </li>
-<li>Galactic, extragalactic and CMB </li>
-<li>Bandpass integrated with tophat bandpasses from <code>s4sim</code> </li>
-<li>Smoothed with gaussian beams </li>
+<li>Full-sky Nside 4096 (LAT) and Nside 512 (SAT)</li>
+<li>Galactic, extragalactic and CMB</li>
+<li>Bandpass integrated with tophat bandpasses from <code>s4sim</code></li>
+<li>Smoothed with gaussian beams</li>
 </ul>
 <p>See the <code>202002_foregrounds_extragalactic_cmb_tophat</code> map based simulations</p>
 <h3 id="Noise-maps">Noise maps<a class="anchor-link" href="#Noise-maps">&#182;</a></h3><p>Noise was simulated for one tube in each telescope.  We observed according to a 10-day schedule without Sun or Moon avoidance. For Chile, the schedules already emulate the maximum observing efficiency.  For simplicity, the Pole schedules only    include one full scan of the respective patch per day.  As a result, the Pole observing efficiencies are 46.29% (SAT) and 37.23% (LAT). These efficiencies must be accounted for by downweighting the Pole noise and atmospheric maps with their      scheduled efficiences.</p>
 <p>These factors should be corrected for the <em>noise and atmosphere</em> maps: <code>map_out = map_in * sqrt(efficiency)</code>.</p>
 <p>Also for expedience, we downsampled the densest focal planes to reduce the overall detector counts:</p>
 
-<pre><code>telescope  band   thinfp 
-LAT        HFL      8 
-LAT        MFL      8 
-LAT        LFL      1 
-LAT        ULFL     1 
-SAT        HFS      8 
-SAT        MFHS     4 
-SAT        MFLS     4 
+<pre><code>telescope  band   thinfp
+LAT        HFL      8
+LAT        MFL      8
+LAT        LFL      1
+LAT        ULFL     1
+SAT        HFS      8
+SAT        MFHS     4
+SAT        MFLS     4
 SAT        LFS      1</code></pre>
 <p>These factors should be corrected for in the <em>noise</em> maps but not in the atmospheric maps: <code>map_out = map_in / sqrt(thinfp)</code>.</p>
 
