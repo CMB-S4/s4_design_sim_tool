@@ -41,7 +41,7 @@ summary: "API details."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_telescope" class="doc_header"><code>get_telescope</code><a href="https://github.com/cmb-s4/s4refsimtool/tree/master/s4refsimtool/core.py#L18" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_telescope</code>(<strong><code>channel</code></strong>)</p>
+<h4 id="get_telescope" class="doc_header"><code>get_telescope</code><a href="https://github.com/cmb-s4/s4refsimtool/tree/master/s4refsimtool/core.py#L24" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_telescope</code>(<strong><code>channel</code></strong>)</p>
 </blockquote>
 
 <pre><code>Identify if a channel is in SAT or LAT
@@ -60,6 +60,46 @@ telescope : str
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="parse_channels" class="doc_header"><code>parse_channels</code><a href="https://github.com/cmb-s4/s4refsimtool/tree/master/s4refsimtool/core.py#L47" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>parse_channels</code>(<strong><code>channels</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">parse_channels</span><span class="p">(</span><span class="s2">&quot;LFL1&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;LFL1&quot;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">parse_channels</span><span class="p">([</span><span class="s2">&quot;LFL1&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;LFL1&quot;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">parse_channels</span><span class="p">(</span><span class="s2">&quot;LFL1,LFL2&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;LFL1&quot;</span><span class="p">,</span> <span class="s2">&quot;LFL2&quot;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">parse_channels</span><span class="p">(</span><span class="s2">&quot;LAT&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;HFL1&#39;</span><span class="p">,</span> <span class="s1">&#39;HFL2&#39;</span><span class="p">,</span> <span class="s1">&#39;LFL1&#39;</span><span class="p">,</span> <span class="s1">&#39;LFL2&#39;</span><span class="p">,</span> <span class="s1">&#39;MFL1&#39;</span><span class="p">,</span> <span class="s1">&#39;MFL2&#39;</span><span class="p">,</span> <span class="s1">&#39;ULFL1&#39;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">parse_channels</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">(</span><span class="n">s4</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 

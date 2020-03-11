@@ -4,6 +4,7 @@
     "s4refsimtool": "/core",
     "Foregrounds": "/foregrounds",
     "Atmosphere": "/atmosphere",
-    "Noise": "/noise"
+    "Noise": "/noise",
+    "Simulation interface": "/cli"
   }
 }
