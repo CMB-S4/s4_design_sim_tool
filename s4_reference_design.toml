@@ -23,9 +23,10 @@ total_experiment_length_years = 7
 # between 0 and 1, typically 0.2
 observing_efficiency = 0.2
 
-# 1 for full lenth of the experiment
-# we assume splits are always interleaved
-# max number of splits 8
+# Number of splits, 1 generates only full mission
+# 2-7 generates the full mission map and then the requested number
+# of splits scaled accordingly. E.g. 7 generates the full mission
+# map and 7 equal (yearly) maps
 number_of_splits = 1
 
 [telescopes]
