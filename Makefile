@@ -1,4 +1,5 @@
 SRC = $(wildcard ./*.ipynb)
+PY_SRC = $(wildcard s4refsimtool/*.py)
 
 all: s4refsimtool
 
@@ -30,6 +31,9 @@ pypi: dist
 
 dist: clean
 	python setup.py sdist bdist_wheel
+
+black: $(PY_SRC)
+	black $(PY_SRC)
 
 clean:
 	rm -rf dist
