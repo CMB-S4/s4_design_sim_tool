@@ -1,4 +1,4 @@
-# CMB-S4 reference simulation tool
+# CMB-S4 design simulation tool
 > Generate CMB-S4 simulated maps of foregrounds/atmosphere and noise based on the configuration of the experiment
 
 
