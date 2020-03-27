@@ -10,7 +10,7 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: s4refsimtool
+      title: s4_design_sim_tool
       url: /core
     - output: web,pdf
       title: Foregrounds
@@ -24,7 +24,10 @@ entries:
     - output: web,pdf
       title: Simulation interface
       url: /cli
+    - output: web,pdf
+      title: Web interface `s4_design_sim_tool`
+      url: /ui
     output: web
-    title: s4refsimtool
+    title: s4_design_sim_tool
   output: web
   title: Sidebar

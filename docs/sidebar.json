@@ -1,10 +1,11 @@
 {
-  "s4refsimtool": {
+  "s4_design_sim_tool": {
     "Overview": "/",
-    "s4refsimtool": "/core",
+    "s4_design_sim_tool": "/core",
     "Foregrounds": "/foregrounds",
     "Atmosphere": "/atmosphere",
     "Noise": "/noise",
-    "Simulation interface": "/cli"
+    "Simulation interface": "/cli",
+    "Web interface `s4_design_sim_tool`": "/ui"
   }
 }
