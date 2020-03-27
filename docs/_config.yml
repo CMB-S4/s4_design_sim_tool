@@ -1,9 +1,9 @@
-repository: cmb-s4/s4refsimtool
+repository: cmb-s4/s4_design_sim_tool
 output: web
-topnav_title: s4refsimtool
-site_title: s4refsimtool
+topnav_title: s4_design_sim_tool
+site_title: s4_design_sim_tool
 company_name: CMB-S4
-description: CMB-S4 Reference Simulation Tool
+description: CMB-S4 Design Simulation Tool
 # Set to false to disable KaTeX math
 use_math: true
 # Add Google analytics id if you have one and want to use it here
