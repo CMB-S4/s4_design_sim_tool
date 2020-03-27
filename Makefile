@@ -1,11 +1,11 @@
 SRC = $(wildcard ./*.ipynb)
-PY_SRC = $(wildcard s4refsimtool/*.py)
+PY_SRC = $(wildcard s4_design_sim_tool/*.py)
 
-all: s4refsimtool
+all: s4_design_sim_tool
 
-s4refsimtool: $(SRC)
+s4_design_sim_tool: $(SRC)
 	nbdev_build_lib
-	touch s4refsimtool
+	touch s4_design_sim_tool
 
 clear: $(SRC)
 	nbdev_clean_nbs --clear_all True --fname "*.ipynb"
