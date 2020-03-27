@@ -4,6 +4,10 @@
 
 `s4_design_sim_tool` is a library, a command-line tool and a web interface to properly combine and weight pre-executed maps from time-domain and map-domain simulation based on input parameters and the instrument configuration (e.g. location of telescopes, distribution in frequency of the tubes).
 
+The software is available in the [CMB-S4/s4_design_sim_tool](https://github.com/CMB-S4/s4_design_sim_tool) repository on Github, the web interface temporarily at: 
+
+* <http://132-249-238-90.compute.cloud.sdsc.edu/>
+
 ## Configuration options
 
 The simulation configuration is defined by a TOML text file,
