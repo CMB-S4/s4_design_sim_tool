@@ -36,6 +36,11 @@ For instrument noise instead, it doesn't matter their distribution across telesc
 
 For more details, see the [input maps section below](#Noise-maps) and the Jupyter notebooks with the implementation for the [atmosphere](/s4_design_sim_tool/atmosphere) and [noise](/s4_design_sim_tool/noise).
 
+#### Splits
+
+The tool supports loading up to 8 splits, which are suitable to simulate 1 full mission map and 7 yearly maps (or 7 interleaved splits).
+In this case, the tool will generate first a full mission map and then the number of splits requested, loading different realizations of atmosphere and noise and weighting them properly.
+
 ## Input maps
 
 ### Sky signal
