@@ -50,6 +50,8 @@ For more details, see the <a href="#Input-maps">input maps section below</a> and
 <p>Therefore 2 tubes on the same telescope have the same atmospheric noise of 1 tube, to reduce noise from the atmosphere we need to distribute tubes across multiple telescopes.
 For instrument noise instead, it doesn't matter their distribution across telescopes, just their number.</p>
 <p>For more details, see the <a href="#Noise-maps">input maps section below</a> and the Jupyter notebooks with the implementation for the <a href="/s4_design_sim_tool/atmosphere">atmosphere</a> and <a href="/s4_design_sim_tool/noise">noise</a>.</p>
+<h4 id="Splits">Splits<a class="anchor-link" href="#Splits"> </a></h4><p>The tool supports loading up to 8 splits, which are suitable to simulate 1 full mission map and 7 yearly maps (or 7 interleaved splits).
+In this case, the tool will generate first a full mission map and then the number of splits requested, loading different realizations of atmosphere and noise and weighting them properly.</p>
 <h2 id="Input-maps">Input maps<a class="anchor-link" href="#Input-maps"> </a></h2><h3 id="Sky-signal">Sky signal<a class="anchor-link" href="#Sky-signal"> </a></h3><ul>
 <li>Full-sky Nside 4096 (LAT) and Nside 512 (SAT)</li>
 <li>Galactic, extragalactic and CMB</li>
