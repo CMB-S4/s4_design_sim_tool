@@ -2,7 +2,7 @@
 > Generate CMB-S4 simulated maps of foregrounds/atmosphere and noise based on the configuration of the experiment
 
 
-![PyPI badge](https://img.shields.io/pypi/v/s4_design_sim_tool)
+[![PyPI badge](https://img.shields.io/pypi/v/s4_design_sim_tool)](https://pypi.org/project/s4-design-sim-tool)
 
 `s4_design_sim_tool` is a library, a command-line tool and a web interface to properly combine and weight pre-executed maps from time-domain and map-domain simulation based on input parameters and the instrument configuration (e.g. location of telescopes, distribution in frequency of the tubes).
 
