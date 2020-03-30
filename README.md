@@ -2,16 +2,22 @@
 > Generate CMB-S4 simulated maps of foregrounds/atmosphere and noise based on the configuration of the experiment
 
 
+![PyPI badge](https://img.shields.io/pypi/v/s4_design_sim_tool)
+
 `s4_design_sim_tool` is a library, a command-line tool and a web interface to properly combine and weight pre-executed maps from time-domain and map-domain simulation based on input parameters and the instrument configuration (e.g. location of telescopes, distribution in frequency of the tubes).
 
-The software is available in the [CMB-S4/s4_design_sim_tool](https://github.com/CMB-S4/s4_design_sim_tool) repository on Github, the web interface temporarily at: 
+The software is available in the [CMB-S4/s4_design_sim_tool](https://github.com/CMB-S4/s4_design_sim_tool) repository on Github, and can be installed locally with PyPI, it currently needs to run at NERSC to access the input maps:
+
+    pip install s4_design_sim_tool
+
+the web interface is temporarily available at: 
 
 * <http://132-249-238-90.compute.cloud.sdsc.edu/>
 
 ## Configuration options
 
 The simulation configuration is defined by a TOML text file,
-see for example the TOML configuration for the CMB-S4 reference design: [`s4_reference_design.toml`](https://github.com/CMB-S4/s4_design_sim_tool/blob/master/s4_reference_design.toml)
+see for example the TOML configuration for the CMB-S4 reference design: [s4_reference_design.toml](https://github.com/CMB-S4/s4_design_sim_tool/blob/master/s4_reference_design.toml)
 
 ### Sky emission
 
@@ -50,7 +56,7 @@ In this case, the tool will generate first a full mission map and then the numbe
 * Bandpass integrated with tophat bandpasses from `s4sim`
 * Smoothed with gaussian beams
 
-See the [`202002_foregrounds_extragalactic_cmb_tophat`](https://github.com/CMB-S4/s4mapbasedsims/tree/master/202002_foregrounds_extragalactic_cmb_tophat) map based simulations.
+See the [202002_foregrounds_extragalactic_cmb_tophat](https://github.com/CMB-S4/s4mapbasedsims/tree/master/202002_foregrounds_extragalactic_cmb_tophat) map based simulations.
 
 Then the maps were used as inputs for a time-domain simulation with TOAST to simulate the effect
 of a filter-and-bin mapmaking with the CMB-S4 scanning strategy both for Pole and Chile.
