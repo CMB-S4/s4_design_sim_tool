@@ -74,6 +74,7 @@ description: "Load extragalactic, galactic and CMB maps"
 <span class="sd">    output_map : numpy array</span>
 <span class="sd">        Output map with all emissions combined, uses nan for missing pixels</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Configuration </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">config_sky_emission</span><span class="p">))</span>
     <span class="n">telescope</span> <span class="o">=</span> <span class="n">get_telescope</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span>
     <span class="n">nside</span> <span class="o">=</span> <span class="mi">512</span> <span class="k">if</span> <span class="n">telescope</span> <span class="o">==</span> <span class="s2">&quot;SAT&quot;</span> <span class="k">else</span> <span class="mi">4096</span>
     <span class="n">npix</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">nside2npix</span><span class="p">(</span><span class="n">nside</span><span class="p">)</span>
@@ -90,6 +91,7 @@ description: "Load extragalactic, galactic and CMB maps"
             <span class="o">/</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{realization:08d}</span><span class="s2">&quot;</span>
             <span class="o">/</span> <span class="n">f</span><span class="s2">&quot;{site.lower()}_</span><span class="si">{emission_naming[emission]}</span><span class="s2">_</span><span class="si">{telescope}</span><span class="s2">_</span><span class="si">{channel}</span><span class="s2">_filtered_telescope_all_time_all_bmap.fits&quot;</span><span class="p">,</span>
             <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">emission_map</span><span class="p">[</span><span class="n">emission_map</span> <span class="o">==</span> <span class="n">hp</span><span class="o">.</span><span class="n">UNSEEN</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
@@ -292,12 +294,9 @@ ULFL1 20.0
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>INFO:root:Processing foreground_emission
-/global/homes/z/zonca/condajupynersc/lib/python3.6/site-packages/healpy/fitsfunc.py:352: UserWarning: If you are not specifying the input dtype and using the default np.float64 dtype of read_map(), please consider that it will change in a future version to None as to keep the same dtype of the input file: please explicitly set the dtype if it is important to you.
-  &#34;If you are not specifying the input dtype and using the default &#34;
+<pre>INFO:root:Configuration {&#39;foreground_emission&#39;: 1, &#39;CMB_unlensed&#39;: 1, &#39;CMB_lensing_signal&#39;: 1, &#39;CMB_tensor_to_scalar_ratio&#39;: 0.005}
+INFO:root:Processing foreground_emission
 INFO:root:Processing CMB_unlensed
-/global/homes/z/zonca/condajupynersc/lib/python3.6/site-packages/healpy/fitsfunc.py:352: UserWarning: If you are not specifying the input dtype and using the default np.float64 dtype of read_map(), please consider that it will change in a future version to None as to keep the same dtype of the input file: please explicitly set the dtype if it is important to you.
-  &#34;If you are not specifying the input dtype and using the default &#34;
 INFO:root:Processing CMB_lensing_signal
 INFO:root:Processing CMB_tensor_to_scalar_ratio
 </pre>
