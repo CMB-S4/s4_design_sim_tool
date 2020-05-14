@@ -29,6 +29,9 @@ observing_efficiency = 0.2
 # map and 7 equal (yearly) maps
 number_of_splits = 1
 
+include_noise = false
+include_atmosphere = false
+
 [telescopes]
 
     # Telescope names are not used within the software
