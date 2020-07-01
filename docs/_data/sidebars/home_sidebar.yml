@@ -22,6 +22,9 @@ entries:
       title: Noise
       url: /noise
     - output: web,pdf
+      title: Hitmaps and White noise covariance
+      url: /hitmap_wcov
+    - output: web,pdf
       title: Simulation interface
       url: /cli
     - output: web,pdf
