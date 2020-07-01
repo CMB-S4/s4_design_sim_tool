@@ -5,6 +5,7 @@
     "Foregrounds": "/foregrounds",
     "Atmosphere": "/atmosphere",
     "Noise": "/noise",
+    "Hitmaps and White noise covariance": "/hitmap_wcov",
     "Simulation interface": "/cli",
     "Web interface `s4_design_sim_tool`": "/ui"
   }
