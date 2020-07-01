@@ -10,9 +10,7 @@ The software is available in the [CMB-S4/s4_design_sim_tool](https://github.com/
 
     pip install s4_design_sim_tool
 
-the web interface is temporarily available at: 
-
-* <http://132-249-238-90.compute.cloud.sdsc.edu/>
+the web interface is currently unavailable.
 
 ## Configuration options
 
@@ -23,6 +21,7 @@ see for example the TOML configuration for the CMB-S4 reference design: [s4_refe
 
 The first section of the configuration files defines which input components should be considered,
 it is possible to choose a weight between 0 and 1 for all components, for example we can simulate residual foregrounds after cleaning or partial de-lensing, and we can choose the tensor-to-scalar ratio `r`.
+For the case of partial de-lensing, consider that lensing is a non-linear and this is a very rough approximation, still it could be useful in same cases, for example low-ell BB modes.
 
 Input maps are already top-hat bandpass integrated, beam-smoothed, and ran through a filter-and-bin mapmaking algorithm in time-domain, they are combined based on the configuration file and are not influenced by the experiment configuration.
 For more details, see the [input maps section below](#Input-maps) and the [Jupyter notebook with the implementation](/s4_design_sim_tool/foregrounds).
@@ -79,4 +78,8 @@ SAT        MFHS     4
 SAT        MFLS     4
 SAT        LFS      1
 ```
-These factors should be corrected for in the *noise* maps but not in the atmospheric maps: `map_out = map_in / sqrt(thinfp)`. 
+These factors should be corrected for in the *noise* maps but not in the atmospheric maps: `map_out = map_in / sqrt(thinfp)`.
+
+More information about the noise and atmosphere simulations are available at:
+
+* <https://cmb-s4.org/wiki/index.php/Reference_design_simulation_tool>
