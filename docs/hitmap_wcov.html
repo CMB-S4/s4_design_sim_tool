@@ -77,7 +77,13 @@ description: "Load and scale hitmaps and white noise covariance matrices"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">load_hitmap_wcov</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">realization</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Load hitmaps and white noise covariance for a channel</span>
+    <span class="sd">&quot;&quot;&quot;Load hitmaps and white noise covariance matrices for a channel</span>
+<span class="sd">    </span>
+<span class="sd">    This loads the simulated hitmaps and white noise covariance matrices</span>
+<span class="sd">    and scales them properly to the experiment configuration and duration</span>
+<span class="sd">    as defined in the input config file.</span>
+<span class="sd">    Hitmaps assumes a sampling frequency of 100 Hz for SAT and 400 Hz for</span>
+<span class="sd">    LAT.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -93,8 +99,11 @@ description: "Load and scale hitmaps and white noise covariance matrices"
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    output_map : numpy array</span>
-<span class="sd">        Output map with all emissions combined, uses nan for missing pixels</span>
+<span class="sd">    hitmap : numpy array</span>
+<span class="sd">        Hitmap for all channels all tubes combined</span>
+<span class="sd">    wcov : numpy array</span>
+<span class="sd">        White noise covariance matrix, rows are:</span>
+<span class="sd">        TT TE TB EE EB BB, units are K^2</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># it is the same scaling for hitmap and white noise covariance matrix,</span>
@@ -373,16 +382,6 @@ pole_noise_SAT_MFLS2_filtered_telescope_all_time_all_wcov_inv.fits
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>NSIDE = 512
-ORDERING = NESTED in fits file
-INDXSCHM = IMPLICIT
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>/global/homes/z/zonca/condajupynersc/lib/python3.7/site-packages/healpy/fitsfunc.py:352: UserWarning: If you are not specifying the input dtype and using the default np.float64 dtype of read_map(), please consider that it will change in a future version to None as to keep the same dtype of the input file: please explicitly set the dtype if it is important to you.
   &#34;If you are not specifying the input dtype and using the default &#34;
@@ -393,7 +392,10 @@ INDXSCHM = IMPLICIT
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Ordering converted to RING
+<pre>NSIDE = 512
+ORDERING = NESTED in fits file
+INDXSCHM = IMPLICIT
+Ordering converted to RING
 </pre>
 </div>
 </div>
