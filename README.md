@@ -55,7 +55,7 @@ In this case, the tool will generate first a full mission map and then the numbe
 * Bandpass integrated with tophat bandpasses from `s4sim`
 * Smoothed with gaussian beams
 
-See the [202002_foregrounds_extragalactic_cmb_tophat](https://github.com/CMB-S4/s4mapbasedsims/tree/master/202002_foregrounds_extragalactic_cmb_tophat) map based simulations.
+See the [202006_foregrounds_extragalactic_cmb_tophat](https://github.com/CMB-S4/s4mapbasedsims/tree/master/202006_foregrounds_extragalactic_cmb_tophat) map based simulations.
 
 Then the maps were used as inputs for a time-domain simulation with TOAST to simulate the effect
 of a filter-and-bin mapmaking with the CMB-S4 scanning strategy both for Pole and Chile.
