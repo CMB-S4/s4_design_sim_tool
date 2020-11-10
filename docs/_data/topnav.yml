@@ -1,8 +1,8 @@
 topnav:
 - title: Topnav
   items:
-    - title: GitHub
-      external_url: https://github.com/cmb-s4/s4refsimtool
+    - title: github
+      external_url: https://github.com/cmb-s4/s4_design_sim_tool/tree/master/
 
 #Topnav dropdowns
 topnav_dropdowns:
