@@ -10,26 +10,26 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: s4_design_sim_tool
-      url: /core
+      title: Core utilities
+      url: core.html
     - output: web,pdf
       title: Foregrounds
-      url: /foregrounds
+      url: foregrounds.html
     - output: web,pdf
       title: Atmosphere
-      url: /atmosphere
+      url: atmosphere.html
     - output: web,pdf
       title: Noise
-      url: /noise
+      url: noise.html
     - output: web,pdf
       title: Hitmaps and White noise covariance
-      url: /hitmap_wcov
+      url: hitmap_wcov.html
     - output: web,pdf
       title: Simulation interface
-      url: /cli
+      url: cli.html
     - output: web,pdf
       title: Web interface `s4_design_sim_tool`
-      url: /ui
+      url: ui.html
     output: web
     title: s4_design_sim_tool
   output: web

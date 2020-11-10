@@ -2,11 +2,13 @@
 
 title: CMB-S4 design simulation tool
 
+
 keywords: fastai
 sidebar: home_sidebar
 
 summary: "Generate CMB-S4 simulated maps of foregrounds/atmosphere and noise based on the configuration of the experiment"
 description: "Generate CMB-S4 simulated maps of foregrounds/atmosphere and noise based on the configuration of the experiment"
+nb_path: "index.ipynb"
 ---
 <!--
 
@@ -62,7 +64,7 @@ In this case, the tool will generate first a full mission map and then the numbe
 <li>Bandpass integrated with tophat bandpasses from <code>s4sim</code></li>
 <li>Smoothed with gaussian beams</li>
 </ul>
-<p>See the <a href="https://github.com/CMB-S4/s4mapbasedsims/tree/master/202002_foregrounds_extragalactic_cmb_tophat">202002_foregrounds_extragalactic_cmb_tophat</a> map based simulations.</p>
+<p>See the <a href="https://github.com/CMB-S4/s4mapbasedsims/tree/master/202006_foregrounds_extragalactic_cmb_tophat">202006_foregrounds_extragalactic_cmb_tophat</a> map based simulations.</p>
 <p>Then the maps were used as inputs for a time-domain simulation with TOAST to simulate the effect
 of a filter-and-bin mapmaking with the CMB-S4 scanning strategy both for Pole and Chile.</p>
 <h3 id="Noise-maps">Noise maps<a class="anchor-link" href="#Noise-maps"> </a></h3><p>Noise was simulated for one tube in each telescope.  We observed according to a 10-day schedule without Sun or Moon avoidance. For Chile, the schedules already emulate the maximum observing efficiency.  For simplicity, the Pole schedules only    include one full scan of the respective patch per day.  As a result, the Pole observing efficiencies are 46.29% (SAT) and 37.23% (LAT). These efficiencies must be accounted for by downweighting the Pole noise and atmospheric maps with their      scheduled efficiences.</p>

@@ -1,12 +1,12 @@
 {
   "s4_design_sim_tool": {
     "Overview": "/",
-    "s4_design_sim_tool": "/core",
-    "Foregrounds": "/foregrounds",
-    "Atmosphere": "/atmosphere",
-    "Noise": "/noise",
-    "Hitmaps and White noise covariance": "/hitmap_wcov",
-    "Simulation interface": "/cli",
-    "Web interface `s4_design_sim_tool`": "/ui"
+    "Core utilities": "core.html",
+    "Foregrounds": "foregrounds.html",
+    "Atmosphere": "atmosphere.html",
+    "Noise": "noise.html",
+    "Hitmaps and White noise covariance": "hitmap_wcov.html",
+    "Simulation interface": "cli.html",
+    "Web interface `s4_design_sim_tool`": "ui.html"
   }
 }
