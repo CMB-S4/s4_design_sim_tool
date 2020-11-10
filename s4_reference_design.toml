@@ -32,6 +32,11 @@ number_of_splits = 1
 include_noise = false
 include_atmosphere = false
 
+# atmosphere maps scaling factors (multipled to input maps)
+atmosphere_scaling_T = 1.0
+atmosphere_scaling_P = 1.0
+
+
 [telescopes]
 
     # Telescope names are not used within the software
