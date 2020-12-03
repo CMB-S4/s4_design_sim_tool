@@ -10,6 +10,9 @@ s4_design_sim_tool: $(SRC)
 clear: $(SRC)
 	nbdev_clean_nbs --clear_all True --fname "*.ipynb"
 
+install: s4_design_sim_tool
+	pip install .
+
 sync:
 	nbdev_update_lib
 
