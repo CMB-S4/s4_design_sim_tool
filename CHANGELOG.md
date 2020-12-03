@@ -2,6 +2,7 @@ Release 1.0.5
 =============
 
 * In progress
+* Fix hitmaps and wcov for splits 39cb65f6fa4d1e70
 * Support multiple TOML configuration files #19
 
 Release 1.0.4
