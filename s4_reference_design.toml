@@ -51,8 +51,6 @@ atmosphere_scaling_P = 1.0
     # Telescope names are not used within the software
 
     [telescopes.SAT]
-    # Available SAT tubes (band centers in GHz) are:
-    # LFS (30,40), MFLS (85,145.1), MFHS (95,155.1), HFS (220,270)
     # Tubes for each SAT should be 3
 
     SAT1 = { LFS=0, MFLS= 3, MFHS=0, HFS=0, site="Pole", years=7 }
@@ -64,8 +62,6 @@ atmosphere_scaling_P = 1.0
     SAT4 = { LFS=1, MFLS= 0, MFHS=0, HFS=2, site="Pole", years=7 }
 
     [telescopes.LAT]
-    # Available LAT tubes (band centers in GHz) are:
-    # ULFL (20), LFL (27,39), MFL (93,145), HFL (225,278)
     # Tubes for each LAT should be 19
 
     # Legacy survey LAT deployed in Chile
@@ -75,4 +71,4 @@ atmosphere_scaling_P = 1.0
 
     # Delensing survey LAT deployed at Pole
 
-    LAT2 = { ULFL=1, LFL= 2, MFL=11, HFL=4, site="Pole", years=7 }
+    LAT2 = { ULFPL=1, LFPL= 2, MFPL=11, HFPL=4, site="Pole", years=7 }
