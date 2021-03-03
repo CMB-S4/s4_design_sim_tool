@@ -21,7 +21,16 @@ CMB_tensor_to_scalar_ratio = 0.005
 total_experiment_length_years = 7
 
 # between 0 and 1, typically 0.2
-observing_efficiency = 0.2
+observing_efficiency.default = 0.2
+
+# we can override the observing efficiency for specific sites/bands
+# always specify first site, then telescope, then band
+observing_efficiency.Pole.SAT.HFS = 0.2
+observing_efficiency.Pole.LAT.HFL = 0.2
+
+# we can also specify defaults for sites (notice capitalization) or telescopes
+observing_efficiency.Pole.SAT.default = 0.2
+observing_efficiency.Chile.default = 0.2
 
 # Number of splits, 1 generates only full mission
 # 2-7 generates the full mission map and then the requested number
