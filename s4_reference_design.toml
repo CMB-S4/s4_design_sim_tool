@@ -102,9 +102,9 @@ observing_efficiency.Chile.LAT.HFL2 = 0.22032
 
     # Legacy survey LAT deployed in Chile
 
-    LAT0 = { ULFL=0, LFL= 2, MFL=12, HFL=5, site="Chile", years=7 }
-    LAT1 = { ULFL=0, LFL= 2, MFL=12, HFL=5, site="Chile", years=7 }
+    LAT0 = { LFL=8, MFL=54, HFL=23, site="Chile", years=7 }
+    LAT1 = { LFL=8, MFL=54, HFL=23, site="Chile", years=7 }
 
     # Delensing survey LAT deployed at Pole
 
-    LAT2 = { ULFPL=1, LFPL= 2, MFPL=11, HFPL=4, site="Pole", years=7 }
+    LAT2 = { ULFPL=4, LFPL=9, MFPL=54, HFPL=18, site="Pole", years=7 }
