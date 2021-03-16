@@ -54,7 +54,44 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_telescope" class="doc_header"><code>get_telescope</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/core.py#L23" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_telescope</code>(<strong><code>channel</code></strong>)</p>
+<h4 id="read_instrument_model" class="doc_header"><code>read_instrument_model</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/core.py#L70" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_instrument_model</code>(<strong><code>filename</code></strong>=<em><code>'instrument_model/cmbs4_instrument_model.tbl'</code></em>)</p>
+</blockquote>
+
+<pre><code>Read the CMB-S4 instrument model
+
+Includes all instrument parameters with units except bandpasses
+
+Paramters
+---------
+filename : str path
+    path to instrument model in ASCII IPAC format
+Returns
+-------
+s4 : QTable
+    astropy table with units, 1 row per channel</code></pre>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_telescope" class="doc_header"><code>get_telescope</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/core.py#L87" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_telescope</code>(<strong><code>channel</code></strong>)</p>
 </blockquote>
 
 <pre><code>Identify if a channel is in SAT or LAT
@@ -83,13 +120,6 @@ telescope : str
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -97,8 +127,28 @@ telescope : str
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="parse_channels" class="doc_header"><code>parse_channels</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/core.py#L45" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>parse_channels</code>(<strong><code>channels</code></strong>)</p>
+<h4 id="get_observing_efficiency" class="doc_header"><code>get_observing_efficiency</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/core.py#L103" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_observing_efficiency</code>(<strong><code>observing_efficiency_config</code></strong>, <strong><code>site</code></strong>, <strong><code>telescope</code></strong>, <strong><code>channel</code></strong>)</p>
 </blockquote>
+
+<pre><code>Extract the observing frequency for a specific channel from
+the configuration dictionary
+
+Parameters
+----------
+observing_efficiency_config : dict
+    the order of keys should be site, telescope, channel
+    e.g. {"Pole":{"LAT":{"HFL1":0.1}}, "default":0.2}
+site : str
+    site, Pole or Chile
+telescope : str
+    LAT or SAT
+channel: str
+    e.g. HFL1
+
+Returns
+-------
+observing_efficiency : float
+    observing efficiency in decimal form, for example .2 for 20%</code></pre>
 
 </div>
 
@@ -124,11 +174,67 @@ telescope : str
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">parse_channels</span><span class="p">(</span><span class="s2">&quot;LFL1&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;LFL1&quot;</span><span class="p">]</span>
-<span class="k">assert</span> <span class="n">parse_channels</span><span class="p">([</span><span class="s2">&quot;LFL1&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;LFL1&quot;</span><span class="p">]</span>
-<span class="k">assert</span> <span class="n">parse_channels</span><span class="p">(</span><span class="s2">&quot;LFL1,LFL2&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;LFL1&quot;</span><span class="p">,</span> <span class="s2">&quot;LFL2&quot;</span><span class="p">]</span>
-<span class="k">assert</span> <span class="n">parse_channels</span><span class="p">(</span><span class="s2">&quot;LAT&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;HFL1&#39;</span><span class="p">,</span> <span class="s1">&#39;HFL2&#39;</span><span class="p">,</span> <span class="s1">&#39;LFL1&#39;</span><span class="p">,</span> <span class="s1">&#39;LFL2&#39;</span><span class="p">,</span> <span class="s1">&#39;MFL1&#39;</span><span class="p">,</span> <span class="s1">&#39;MFL2&#39;</span><span class="p">,</span> <span class="s1">&#39;ULFL1&#39;</span><span class="p">]</span>
-<span class="k">assert</span> <span class="n">parse_channels</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">(</span><span class="n">s4</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">observing_efficiency_config</span> <span class="o">=</span>  <span class="p">{</span><span class="s2">&quot;Pole&quot;</span><span class="p">:{</span><span class="s2">&quot;LAT&quot;</span><span class="p">:{</span><span class="s2">&quot;HFL1&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">}},</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">get_observing_efficiency</span><span class="p">(</span><span class="n">observing_efficiency_config</span><span class="p">,</span> <span class="s2">&quot;Pole&quot;</span><span class="p">,</span> <span class="s2">&quot;LAT&quot;</span><span class="p">,</span> <span class="s2">&quot;HFL1&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="o">.</span><span class="mi">1</span>
+<span class="k">assert</span> <span class="n">get_observing_efficiency</span><span class="p">(</span><span class="n">observing_efficiency_config</span><span class="p">,</span> <span class="s2">&quot;Pole&quot;</span><span class="p">,</span> <span class="s2">&quot;LAT&quot;</span><span class="p">,</span> <span class="s2">&quot;MFL1&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="o">.</span><span class="mi">2</span>
+<span class="k">assert</span> <span class="n">get_observing_efficiency</span><span class="p">(</span><span class="n">observing_efficiency_config</span><span class="p">,</span> <span class="s2">&quot;Chile&quot;</span><span class="p">,</span> <span class="s2">&quot;LAT&quot;</span><span class="p">,</span> <span class="s2">&quot;MFL2&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="o">.</span><span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">observing_efficiency_config_telescope_default</span> <span class="o">=</span>  <span class="p">{</span><span class="s2">&quot;Pole&quot;</span><span class="p">:{</span><span class="s2">&quot;LAT&quot;</span><span class="p">:{</span><span class="s2">&quot;HFL2&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span><span class="o">.</span><span class="mi">15</span><span class="p">}},</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">}</span>
+
+<span class="k">assert</span> <span class="n">get_observing_efficiency</span><span class="p">(</span><span class="n">observing_efficiency_config_telescope_default</span><span class="p">,</span> <span class="s2">&quot;Pole&quot;</span><span class="p">,</span> <span class="s2">&quot;LAT&quot;</span><span class="p">,</span> <span class="s2">&quot;HFL2&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="o">.</span><span class="mi">1</span>
+<span class="k">assert</span> <span class="n">get_observing_efficiency</span><span class="p">(</span><span class="n">observing_efficiency_config_telescope_default</span><span class="p">,</span> <span class="s2">&quot;Pole&quot;</span><span class="p">,</span> <span class="s2">&quot;LAT&quot;</span><span class="p">,</span> <span class="s2">&quot;MFL1&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="o">.</span><span class="mi">15</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">observing_efficiency_config_site_default</span> <span class="o">=</span>  <span class="p">{</span><span class="s2">&quot;Pole&quot;</span><span class="p">:{</span><span class="s2">&quot;default&quot;</span><span class="p">:</span><span class="o">.</span><span class="mi">19</span><span class="p">,</span> <span class="s2">&quot;LAT&quot;</span><span class="p">:{</span><span class="s2">&quot;HFL2&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span><span class="o">.</span><span class="mi">15</span><span class="p">}},</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">}</span>
+
+<span class="k">assert</span> <span class="n">get_observing_efficiency</span><span class="p">(</span><span class="n">observing_efficiency_config_site_default</span><span class="p">,</span> <span class="s2">&quot;Pole&quot;</span><span class="p">,</span> <span class="s2">&quot;LAT&quot;</span><span class="p">,</span> <span class="s2">&quot;HFL2&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="o">.</span><span class="mi">1</span>
+<span class="k">assert</span> <span class="n">get_observing_efficiency</span><span class="p">(</span><span class="n">observing_efficiency_config_site_default</span><span class="p">,</span> <span class="s2">&quot;Pole&quot;</span><span class="p">,</span> <span class="s2">&quot;LAT&quot;</span><span class="p">,</span> <span class="s2">&quot;MFL1&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="o">.</span><span class="mi">15</span>
+<span class="k">assert</span> <span class="n">get_observing_efficiency</span><span class="p">(</span><span class="n">observing_efficiency_config_site_default</span><span class="p">,</span> <span class="s2">&quot;Pole&quot;</span><span class="p">,</span> <span class="s2">&quot;SAT&quot;</span><span class="p">,</span> <span class="s2">&quot;LFS1&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="o">.</span><span class="mi">19</span>
 </pre></div>
 
     </div>
