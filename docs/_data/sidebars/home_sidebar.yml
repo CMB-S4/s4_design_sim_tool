@@ -30,6 +30,9 @@ entries:
     - output: web,pdf
       title: Web interface `s4_design_sim_tool`
       url: ui.html
+    - output: web,pdf
+      title: Title
+      url: run_compute_cl.html
     output: web
     title: s4_design_sim_tool
   output: web

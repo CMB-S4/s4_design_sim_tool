@@ -7,6 +7,7 @@
     "Noise": "noise.html",
     "Hitmaps and White noise covariance": "hitmap_wcov.html",
     "Simulation interface": "cli.html",
-    "Web interface `s4_design_sim_tool`": "ui.html"
+    "Web interface `s4_design_sim_tool`": "ui.html",
+    "Title": "run_compute_cl.html"
   }
 }

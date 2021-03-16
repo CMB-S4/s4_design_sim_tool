@@ -69,22 +69,13 @@ In this case, the tool will generate first a full mission map and then the numbe
 of a filter-and-bin mapmaking with the CMB-S4 scanning strategy both for Pole and Chile.</p>
 <h3 id="Noise-maps">Noise maps<a class="anchor-link" href="#Noise-maps"> </a></h3><p>Noise was simulated for one tube in each telescope.  We observed according to a 10-day schedule without Sun or Moon avoidance. For Chile, the schedules already emulate the maximum observing efficiency.  For simplicity, the Pole schedules only    include one full scan of the respective patch per day.  As a result, the Pole observing efficiencies are 46.29% (SAT) and 37.23% (LAT). These efficiencies must be accounted for by downweighting the Pole noise and atmospheric maps with their      scheduled efficiences.</p>
 <p>These factors should be corrected for the <em>noise and atmosphere</em> maps: <code>map_out = map_in * sqrt(efficiency)</code>.</p>
-<p>Also for expedience, we downsampled the densest focal planes to reduce the overall detector counts:</p>
-
-<pre><code>telescope  band   thinfp
-LAT        HFL      8
-LAT        MFL      8
-LAT        LFL      1
-LAT        ULFL     1
-SAT        HFS      8
-SAT        MFHS     4
-SAT        MFLS     4
-SAT        LFS      1</code></pre>
-<p>These factors should be corrected for in the <em>noise</em> maps but not in the atmospheric maps: <code>map_out = map_in / sqrt(thinfp)</code>.</p>
+<p>Also for expedience, we downsampled the densest focal planes to reduce the overall detector counts.
+These factors should be corrected for in the <em>noise</em> maps but not in the atmospheric maps: <code>map_out = map_in / sqrt(thinfp)</code>.</p>
 <p>More information about the noise and atmosphere simulations are available at:</p>
 <ul>
 <li><a href="https://cmb-s4.org/wiki/index.php/Reference_design_simulation_tool">https://cmb-s4.org/wiki/index.php/Reference_design_simulation_tool</a></li>
 </ul>
+<h2 id="Simulation-datasets-released">Simulation datasets released<a class="anchor-link" href="#Simulation-datasets-released"> </a></h2><p>Documentation about each simulations are avaiable in the <a href="https://github.com/CMB-S4/s4mapbasedsims"><code>CMB-S4/s4mapbasedsims</code> repository on Github</a></p>
 
 </div>
 </div>
