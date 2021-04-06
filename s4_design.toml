@@ -37,7 +37,7 @@ include_noise = false
 
 # fraction of detectors lost during fabrication, generally 0.8
 # this impacts only noise, not atmosphere
-detector_yield_factor = 1.0
+detector_yield_factor = 0.8
 
 # between 0 and 1, typically 0.2
 # remove default so the code errors if a band is not specified
