@@ -12,6 +12,10 @@ The software is available in the [CMB-S4/s4_design_sim_tool](https://github.com/
 
 the web interface is currently unavailable.
 
+## Releases and changelog
+
+See the [`CHANGELOG`](https://github.com/CMB-S4/s4_design_sim_tool/blob/master/CHANGELOG.md)
+
 ## Configuration options
 
 The simulation configuration is defined by a TOML text file,
@@ -33,8 +37,8 @@ The second section defines the design of the instrument, it is possible to custo
 Scaling of atmospheric and instrument noise is performed with these assumption:
 
 * scale the 10-day simulations to 1 year considering the observing efficiency
-* for Pole also consider the additional efficiency factor
 * scale by the detector-years for noise and telescope-years for atmosphere
+* for both emissions also consider the overall expected observing efficiency, for noise also consider the sensitivity factor
 
 Therefore 2 tubes on the same telescope have the same atmospheric noise of 1 tube, to reduce noise from the atmosphere we need to distribute tubes across multiple telescopes.
 For instrument noise instead, it doesn't matter their distribution across telescopes, just their number.
@@ -55,7 +59,7 @@ In this case, the tool will generate first a full mission map and then the numbe
 * Bandpass integrated with tophat bandpasses from `s4sim`
 * Smoothed with gaussian beams
 
-See the [202006_foregrounds_extragalactic_cmb_tophat](https://github.com/CMB-S4/s4mapbasedsims/tree/master/202006_foregrounds_extragalactic_cmb_tophat) map based simulations.
+See the [`202102_design_tool_input`](https://github.com/CMB-S4/s4mapbasedsims/tree/master/202102_design_tool_input) map based simulations.
 
 Then the maps were used as inputs for a time-domain simulation with TOAST to simulate the effect
 of a filter-and-bin mapmaking with the CMB-S4 scanning strategy both for Pole and Chile.
@@ -66,18 +70,7 @@ Noise was simulated for one tube in each telescope.  We observed according to a 
 
 These factors should be corrected for the *noise and atmosphere* maps: `map_out = map_in * sqrt(efficiency)`.
 
-Also for expedience, we downsampled the densest focal planes to reduce the overall detector counts:
-```
-telescope  band   thinfp
-LAT        HFL      8
-LAT        MFL      8
-LAT        LFL      1
-LAT        ULFL     1
-SAT        HFS      8
-SAT        MFHS     4
-SAT        MFLS     4
-SAT        LFS      1
-```
+Also for expedience, we downsampled the densest focal planes to reduce the overall detector counts.
 These factors should be corrected for in the *noise* maps but not in the atmospheric maps: `map_out = map_in / sqrt(thinfp)`.
 
 More information about the noise and atmosphere simulations are available at:

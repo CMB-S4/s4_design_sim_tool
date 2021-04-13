@@ -39,8 +39,9 @@ nb_path: "index.ipynb"
 
 </code></pre>
 <p>the web interface is currently unavailable.</p>
+<h2 id="Releases-and-changelog">Releases and changelog<a class="anchor-link" href="#Releases-and-changelog"> </a></h2><p>See the <code>CHANGELOG</code></p>
 <h2 id="Configuration-options">Configuration options<a class="anchor-link" href="#Configuration-options"> </a></h2><p>The simulation configuration is defined by a TOML text file,
-see for example the TOML configuration for the CMB-S4 reference design: <a href="https://github.com/CMB-S4/s4_design_sim_tool/blob/master/s4_reference_design.toml">s4_reference_design.toml</a></p>
+see for example the TOML configuration for the CMB-S4 reference design: <a href="https://github.com/CMB-S4/s4_design_sim_tool/blob/master/s4_design.toml">s4_design.toml</a></p>
 <h3 id="Sky-emission">Sky emission<a class="anchor-link" href="#Sky-emission"> </a></h3><p>The first section of the configuration files defines which input components should be considered,
 it is possible to choose a weight between 0 and 1 for all components, for example we can simulate residual foregrounds after cleaning or partial de-lensing, and we can choose the tensor-to-scalar ratio <code>r</code>.
 For the case of partial de-lensing, consider that lensing is a non-linear and this is a very rough approximation, still it could be useful in same cases, for example low-ell BB modes.</p>
@@ -50,8 +51,8 @@ For more details, see the <a href="#Input-maps">input maps section below</a> and
 <p>Scaling of atmospheric and instrument noise is performed with these assumption:</p>
 <ul>
 <li>scale the 10-day simulations to 1 year considering the observing efficiency</li>
-<li>for Pole also consider the additional efficiency factor</li>
 <li>scale by the detector-years for noise and telescope-years for atmosphere</li>
+<li>for both emissions also consider the overall expected observing efficiency, for noise also consider the sensitivity factor</li>
 </ul>
 <p>Therefore 2 tubes on the same telescope have the same atmospheric noise of 1 tube, to reduce noise from the atmosphere we need to distribute tubes across multiple telescopes.
 For instrument noise instead, it doesn't matter their distribution across telescopes, just their number.</p>
@@ -64,7 +65,7 @@ In this case, the tool will generate first a full mission map and then the numbe
 <li>Bandpass integrated with tophat bandpasses from <code>s4sim</code></li>
 <li>Smoothed with gaussian beams</li>
 </ul>
-<p>See the <a href="https://github.com/CMB-S4/s4mapbasedsims/tree/master/202006_foregrounds_extragalactic_cmb_tophat">202006_foregrounds_extragalactic_cmb_tophat</a> map based simulations.</p>
+<p>See the <code>202102_design_tool_input</code> map based simulations.</p>
 <p>Then the maps were used as inputs for a time-domain simulation with TOAST to simulate the effect
 of a filter-and-bin mapmaking with the CMB-S4 scanning strategy both for Pole and Chile.</p>
 <h3 id="Noise-maps">Noise maps<a class="anchor-link" href="#Noise-maps"> </a></h3><p>Noise was simulated for one tube in each telescope.  We observed according to a 10-day schedule without Sun or Moon avoidance. For Chile, the schedules already emulate the maximum observing efficiency.  For simplicity, the Pole schedules only    include one full scan of the respective patch per day.  As a result, the Pole observing efficiencies are 46.29% (SAT) and 37.23% (LAT). These efficiencies must be accounted for by downweighting the Pole noise and atmospheric maps with their      scheduled efficiences.</p>
@@ -75,7 +76,6 @@ These factors should be corrected for in the <em>noise</em> maps but not in the 
 <ul>
 <li><a href="https://cmb-s4.org/wiki/index.php/Reference_design_simulation_tool">https://cmb-s4.org/wiki/index.php/Reference_design_simulation_tool</a></li>
 </ul>
-<h2 id="Simulation-datasets-released">Simulation datasets released<a class="anchor-link" href="#Simulation-datasets-released"> </a></h2><p>Documentation about each simulations are avaiable in the <a href="https://github.com/CMB-S4/s4mapbasedsims"><code>CMB-S4/s4mapbasedsims</code> repository on Github</a></p>
 
 </div>
 </div>
