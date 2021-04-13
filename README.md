@@ -15,7 +15,7 @@ the web interface is currently unavailable.
 ## Configuration options
 
 The simulation configuration is defined by a TOML text file,
-see for example the TOML configuration for the CMB-S4 reference design: [s4_reference_design.toml](https://github.com/CMB-S4/s4_design_sim_tool/blob/master/s4_reference_design.toml)
+see for example the TOML configuration for the CMB-S4 reference design: [s4_design.toml](https://github.com/CMB-S4/s4_design_sim_tool/blob/master/s4_design.toml)
 
 ### Sky emission
 
