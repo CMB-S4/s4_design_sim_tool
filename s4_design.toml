@@ -34,9 +34,19 @@ sensitivity_factor.Pole.SAT.MFHS2 = 0.52 # 155 GHz
 sensitivity_factor.Pole.SAT.HFS1  = 0.52 # 220 GHz
 sensitivity_factor.Pole.SAT.HFS2  = 0.52 # 270 GHz
 
+# For Chile SAT it includes yield and loss to uneven noise across detectors
+sensitivity_factor.Chile.SAT.LFS1  = 0.64 # 30 GHz
+sensitivity_factor.Chile.SAT.LFS2  = 0.64 # 40 GHz
+sensitivity_factor.Chile.SAT.MFLS1 = 0.64 # 85 GHz
+sensitivity_factor.Chile.SAT.MFLS2 = 0.52 # 145 GHz
+sensitivity_factor.Chile.SAT.MFHS1 = 0.64 # 95 GHz
+sensitivity_factor.Chile.SAT.MFHS2 = 0.52 # 155 GHz
+sensitivity_factor.Chile.SAT.HFS1  = 0.52 # 220 GHz
+sensitivity_factor.Chile.SAT.HFS2  = 0.52 # 270 GHz
+
+
 # Just consider yield
 sensitivity_factor.Chile.LAT.default = 0.8
-sensitivity_factor.Chile.SAT.default = 0.8
 sensitivity_factor.Pole.LAT.default = 0.8
 
 # Number of splits, 1 generates only full mission
