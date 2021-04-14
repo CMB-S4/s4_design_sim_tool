@@ -2,20 +2,20 @@ Release 1.1.1
 =============
 
 * Released on 13 April 2021
-* Scale atmosphere polarization by thinning factor #24
-* Sensitivity factors #23
+* Scale atmosphere polarization by thinning factor https://github.com/CMB-S4/s4_design_sim_tool/pull/24
+* Sensitivity factors https://github.com/CMB-S4/s4_design_sim_tool/pull/2423
 
 Release 1.1.0
 =============
 
 * Released on 16 March 2021
-* Used for the first version of the Winter 2021 run #22
-* Updated all the input time domain simulation maps #22
-* Moved instrument model to astropy tables aa132bb46049124c
-* Fixed bug in handling of CMB Tensor component 596c20233b125858f
-* Observing efficiency by band #20
-* Fix hitmaps and wcov for splits 39cb65f6fa4d1e70
-* Support multiple TOML configuration files #19
+* Used for the first version of the Winter 2021 run https://github.com/CMB-S4/s4_design_sim_tool/pull/2422
+* Updated all the input time domain simulation maps https://github.com/CMB-S4/s4_design_sim_tool/pull/2422
+* Moved instrument model to astropy tables https://github.com/CMB-S4/s4_design_sim_tool/commit/aa132bb46049124c
+* Fixed bug in handling of CMB Tensor component https://github.com/CMB-S4/s4_design_sim_tool/commit/596c20233b125858f
+* Observing efficiency by band https://github.com/CMB-S4/s4_design_sim_tool/pull/2420
+* Fix hitmaps and wcov for splits https://github.com/CMB-S4/s4_design_sim_tool/commit/39cb65f6fa4d1e70
+* Support multiple TOML configuration files https://github.com/CMB-S4/s4_design_sim_tool/pull/2419
 
 Release 1.0.4
 =============
