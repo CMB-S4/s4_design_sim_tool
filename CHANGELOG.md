@@ -1,3 +1,10 @@
+Release 1.1.2
+=============
+
+* Released on 22 April 2021
+* Used to rerun atmosphere and noise for <https://github.com/CMB-S4/s4mapbasedsims/tree/master/202102_design_tool_run>
+* Update LAT sensitivity factors to include loss due to uneven NET across detectors <https://github.com/CMB-S4/s4_design_sim_tool/commit/2f9d3d14a8ca29ded49>
+
 Release 1.1.1
 =============
 
