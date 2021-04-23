@@ -57,6 +57,23 @@ nb_path: "05_cli.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hp</span><span class="o">.</span><span class="n">disable_warnings</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 <div class="output_wrapper">
 <div class="output">
@@ -65,7 +82,7 @@ nb_path: "05_cli.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="md5sum_string" class="doc_header"><code>md5sum_string</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/cli.py#L33" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>md5sum_string</code>(<strong><code>string</code></strong>)</p>
+<h4 id="md5sum_string" class="doc_header"><code>md5sum_string</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/cli.py#L39" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>md5sum_string</code>(<strong><code>string</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -89,7 +106,7 @@ nb_path: "05_cli.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="md5sum_file" class="doc_header"><code>md5sum_file</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/cli.py#L37" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>md5sum_file</code>(<strong><code>filename</code></strong>)</p>
+<h4 id="md5sum_file" class="doc_header"><code>md5sum_file</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/cli.py#L43" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>md5sum_file</code>(<strong><code>filename</code></strong>)</p>
 </blockquote>
 
 <pre><code>Compute md5 checksum of the contents of a file</code></pre>
@@ -142,7 +159,7 @@ nb_path: "05_cli.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="parse_channels" class="doc_header"><code>parse_channels</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/cli.py#L64" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>parse_channels</code>(<strong><code>channels</code></strong>)</p>
+<h4 id="parse_channels" class="doc_header"><code>parse_channels</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/cli.py#L71" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>parse_channels</code>(<strong><code>channels</code></strong>)</p>
 </blockquote>
 
 <pre><code>Parse a comma separated list of channels or all or SAT/LAT into channel tag list</code></pre>
@@ -302,7 +319,7 @@ nb_path: "05_cli.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="merge_dict" class="doc_header"><code>merge_dict</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/cli.py#L79" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>merge_dict</code>(<strong><code>d1</code></strong>, <strong><code>d2</code></strong>)</p>
+<h4 id="merge_dict" class="doc_header"><code>merge_dict</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/cli.py#L87" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>merge_dict</code>(<strong><code>d1</code></strong>, <strong><code>d2</code></strong>)</p>
 </blockquote>
 
 <pre><code>Modifies d1 in-place to contain values from d2.  If any value
@@ -330,7 +347,7 @@ value in d2 is also a dictionary, then merge them in-place.</code></pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="parse_config" class="doc_header"><code>parse_config</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/cli.py#L93" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>parse_config</code>(<strong>*<code>config_files</code></strong>)</p>
+<h4 id="parse_config" class="doc_header"><code>parse_config</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/cli.py#L101" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>parse_config</code>(<strong>*<code>config_files</code></strong>)</p>
 </blockquote>
 
 <pre><code>Parse TOML configuration files
@@ -450,7 +467,7 @@ config : dict
 
 <div class="output_text output_subarea output_execute_result">
 <pre>[&#39;Warning: Python module not loaded, you already have Python loaded via conda init&#39;,
- &#39;c2bed2c3a8ba786eeb7351f897595a9c  s4_design.toml&#39;]</pre>
+ &#39;2291dbc6667564aed8259956f968cba7  s4_design.toml&#39;]</pre>
 </div>
 
 </div>
@@ -489,7 +506,7 @@ config : dict
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="S4DesSimTool" class="doc_header"><code>class</code> <code>S4DesSimTool</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/cli.py#L116" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>S4DesSimTool</code>(<strong><code>config_filename</code></strong>, <strong><code>output_folder</code></strong>=<em><code>'output'</code></em>)</p>
+<h2 id="S4RefSimTool" class="doc_header"><code>class</code> <code>S4RefSimTool</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/cli.py#L125" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>S4RefSimTool</code>(<strong><code>config_filename</code></strong>, <strong><code>output_folder</code></strong>=<em><code>'output'</code></em>)</p>
 </blockquote>
 
 </div>
@@ -509,7 +526,7 @@ config : dict
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">S4DesSimTool</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">S4RefSimTool</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_filename</span><span class="p">,</span> <span class="n">output_folder</span><span class="o">=</span><span class="s2">&quot;output&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Simulate CMB-S4 maps based on the experiment configuration</span>
 
@@ -517,7 +534,7 @@ config : dict
 <span class="sd">        ----------</span>
 <span class="sd">        config : str or Path or List</span>
 <span class="sd">            CMB-S4 configuration stored in a TOML file</span>
-<span class="sd">            see for example s4_reference_design.toml in the repository</span>
+<span class="sd">            see for example s4_design.toml in the repository</span>
 <span class="sd">            It also supports multiple TOML files as a List, in this case</span>
 <span class="sd">            later files override configuration files of the earlier files.</span>
 <span class="sd">            check the `config` attribute to verify that the parsing behaved</span>
@@ -536,7 +553,7 @@ config : dict
         <span class="bp">self</span><span class="o">.</span><span class="n">output_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output_folder</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">output_folder</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">sites</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Pole&quot;</span><span class="p">,</span> <span class="s2">&quot;Chile&quot;</span><span class="p">],</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">sites</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Pole&quot;</span><span class="p">,</span> <span class="s2">&quot;Chile&quot;</span><span class="p">]):</span>
         <span class="sd">&quot;&quot;&quot;Run the simulation</span>
 
 <span class="sd">        Parameters</span>
@@ -566,7 +583,6 @@ config : dict
                 <span class="n">subfolder</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Created output folder </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">subfolder</span><span class="p">))</span>
 
-
                 <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsplits</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
                     <span class="n">nside</span> <span class="o">=</span> <span class="mi">512</span> <span class="k">if</span> <span class="n">telescope</span> <span class="o">==</span> <span class="s2">&quot;SAT&quot;</span> <span class="k">else</span> <span class="mi">4096</span>
                     <span class="n">output_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_filename_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
@@ -577,10 +593,10 @@ config : dict
                         <span class="n">split</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">split</span><span class="p">),</span>  <span class="c1"># split=0 is full mission and we want 1</span>
                         <span class="n">nsplits</span><span class="o">=</span><span class="mi">1</span> <span class="k">if</span> <span class="n">split</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">nsplits</span><span class="p">,</span>
                     <span class="p">)</span>
-                    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">subfolder</span> <span class="o">/</span> <span class="n">output_filename</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">overwrite</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">subfolder</span> <span class="o">/</span> <span class="n">output_filename</span><span class="p">):</span>
                         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;File </span><span class="si">%s</span><span class="s2"> already exists, SKIP&quot;</span><span class="p">,</span> <span class="n">output_filename</span><span class="p">)</span>
                         <span class="k">continue</span>
-                        
+
                     <span class="k">if</span> <span class="n">split</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Simulate channel </span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="n">site</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                         <span class="n">sky_emission</span> <span class="o">=</span> <span class="n">load_sky_emission</span><span class="p">(</span>
@@ -709,7 +725,7 @@ config : dict
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="command_line_script" class="doc_header"><code>command_line_script</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/cli.py#L300" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>command_line_script</code>(<strong><code>args</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="command_line_script" class="doc_header"><code>command_line_script</code><a href="https://github.com/cmb-s4/s4_design_sim_tool/tree/master/s4_design_sim_tool/cli.py#L309" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>command_line_script</code>(<strong><code>args</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 
 </div>
@@ -765,7 +781,7 @@ config : dict
         <span class="n">sites</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Chile&quot;</span><span class="p">,</span> <span class="s2">&quot;Pole&quot;</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">sites</span> <span class="o">=</span> <span class="p">[</span><span class="n">res</span><span class="o">.</span><span class="n">site</span><span class="p">]</span>
-    <span class="n">sim</span> <span class="o">=</span> <span class="n">S4DefSimTool</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">output_folder</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">output_folder</span><span class="p">)</span>
+    <span class="n">sim</span> <span class="o">=</span> <span class="n">S4RefSimTool</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">output_folder</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">output_folder</span><span class="p">)</span>
     <span class="n">sim</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">channels</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="n">sites</span><span class="o">=</span><span class="n">sites</span><span class="p">)</span>
 </pre></div>
 
@@ -800,7 +816,7 @@ config : dict
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sim</span> <span class="o">=</span> <span class="n">S4DesSimTool</span><span class="p">(</span><span class="s2">&quot;s4_design.toml&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sim</span> <span class="o">=</span> <span class="n">S4RefSimTool</span><span class="p">(</span><span class="s2">&quot;s4_design.toml&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -817,7 +833,94 @@ config : dict
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sim</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">channels</span><span class="o">=</span><span class="s2">&quot;LFS1&quot;</span><span class="p">,</span> <span class="n">sites</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Pole&quot;</span><span class="p">],</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>ls output/
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Warning: Python module not loaded, you already have Python loaded via conda init
+C_ell_LAT_1.pkl
+s4_reference_design_cmb_r0
+s4_reference_design_cmb_tensor_only_r3e-3
+s4_reference_design_foregrounds
+s4_reference_design_noise_atmo_7splits
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>S4RefSimTool<span class="o">?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Init signature:</span> S4RefSimTool<span class="ansi-blue-fg">(</span>config_filename<span class="ansi-blue-fg">,</span> output_folder<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;output&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Docstring:</span>      &lt;no docstring&gt;
+<span class="ansi-red-fg">Init docstring:</span>
+Simulate CMB-S4 maps based on the experiment configuration
+
+Parameters
+----------
+config : str or Path or List
+    CMB-S4 configuration stored in a TOML file
+    see for example s4_design.toml in the repository
+    It also supports multiple TOML files as a List, in this case
+    later files override configuration files of the earlier files.
+    check the `config` attribute to verify that the parsing behaved
+    as expected.
+output_folder : str or Path
+    Output path
+<span class="ansi-red-fg">Type:</span>           type
+<span class="ansi-red-fg">Subclasses:</span>     
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sim</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">channels</span><span class="o">=</span><span class="s2">&quot;LFS1&quot;</span><span class="p">,</span> <span class="n">sites</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Pole&quot;</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -952,7 +1055,7 @@ INFO:root:Writing cmbs4_KCMB_SAT-LFS1_pole_nside512_1_of_1.fits
  (&#39;INDXSCHM&#39;, &#39;IMPLICIT&#39;),
  (&#39;OBJECT&#39;, &#39;FULLSKY&#39;),
  (&#39;SOFTWARE&#39;, &#39;s4_design_sim_tool&#39;),
- (&#39;SW_VERS&#39;, &#39;1.1.0&#39;),
+ (&#39;SW_VERS&#39;, &#39;1.1.3&#39;),
  (&#39;SKY_VERS&#39;, &#39;1.0&#39;),
  (&#39;ATM_VERS&#39;, &#39;1.0&#39;),
  (&#39;NOI_VERS&#39;, &#39;1.0&#39;),
@@ -960,8 +1063,8 @@ INFO:root:Writing cmbs4_KCMB_SAT-LFS1_pole_nside512_1_of_1.fits
  (&#39;SPLIT&#39;, 0),
  (&#39;NSPLITS&#39;, 0),
  (&#39;CHANNEL&#39;, &#39;LFS1&#39;),
- (&#39;DATE&#39;, &#39;2021-03-16&#39;),
- (&#39;CONFMD5&#39;, &#39;c2bed2c3a8ba786eeb7351f897595a9c&#39;)]</pre>
+ (&#39;DATE&#39;, &#39;2021-04-23&#39;),
+ (&#39;CONFMD5&#39;, &#39;2291dbc6667564aed8259956f968cba7&#39;)]</pre>
 </div>
 
 </div>
@@ -1147,6 +1250,37 @@ INFO:root:Writing cmbs4_KCMB_SAT-LFS1_pole_nside512_1_of_1.fits
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rm -r output/SAT-LFS1_pole
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Warning: Python module not loaded, you already have Python loaded via conda init
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Test-multiple-TOML-files">Test multiple TOML files<a class="anchor-link" href="#Test-multiple-TOML-files"> </a></h2>
@@ -1196,7 +1330,7 @@ INFO:root:Writing cmbs4_KCMB_SAT-LFS1_pole_nside512_1_of_1.fits
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sim2</span> <span class="o">=</span> <span class="n">S4DesSimTool</span><span class="p">([</span><span class="s2">&quot;s4_design.toml&quot;</span><span class="p">,</span> <span class="s2">&quot;only_CMB_scalar.toml&quot;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sim2</span> <span class="o">=</span> <span class="n">S4RefSimTool</span><span class="p">([</span><span class="s2">&quot;s4_design.toml&quot;</span><span class="p">,</span> <span class="s2">&quot;only_CMB_scalar.toml&quot;</span><span class="p">])</span>
 </pre></div>
 
     </div>
